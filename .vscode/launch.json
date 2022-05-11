@@ -15,5 +15,9 @@
             "django": true,
             "justMyCode": true
         }
-    ]
+    ],
+    "settings": {
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.defaultInterpreterPath": "~/venv/Scripts/python"
+    }
 }
