@@ -16,18 +16,17 @@
 <body>
     {% include 'header.html' %}
 
-    <div class="search-container">
-        <div class="container">
-            <form method="get" class="search-form" autocomplete="off">
-                <input type="search" name="q" class="search-input" placeholder="Pesquise sua receita aqui">
-                <button type="submit" class="search-button">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div> <!--container-->
-    </div> <!--search-container-->
+    {% include 'search.html' %}
 
-    
+    <main class="main-content-container">
+        <div class="main-content main-content-list container">
+            <div class="recipe recipe-item">
+                <div class="recipe-cover">
+                    <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="thumbnail">
+                </div>
+            </div>
+        </div>
+    </main>
 
     {% block content %}{% endblock content %}
 </body>
