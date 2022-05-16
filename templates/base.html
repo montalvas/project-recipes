@@ -20,14 +20,18 @@
 
     <main class="main-content-container">
         <div class="main-content main-content-list container">
-            <div class="recipe recipe-item">
-                <div class="recipe-cover">
-                    <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="thumbnail">
-                </div>
-            </div>
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
+            {% include 'recipe.html' %}
         </div>
     </main>
 
-    {% block content %}{% endblock content %}
+    {% include 'footer.html' %}
 </body>
 </html>
