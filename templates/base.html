@@ -18,19 +18,7 @@
 
     {% include 'search.html' %}
 
-    <main class="main-content-container">
-        <div class="main-content main-content-list container">
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-            {% include 'recipe.html' %}
-        </div>
-    </main>
+    {% block content %}{% endblock content %}
 
     {% include 'footer.html' %}
 </body>
