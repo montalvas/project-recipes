@@ -18,7 +18,9 @@
 
     {% include 'search.html' %}
 
-    {% block content %}{% endblock content %}
+    <main class="main-content-container">
+        {% block content %}{% endblock content %}
+    </main>
 
     {% include 'footer.html' %}
 </body>
