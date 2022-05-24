@@ -1,13 +1,12 @@
+{% load static %}
+
 <div class="recipe recipe-item">
     <div class="recipe-cover">
-        {% if not is_detail_page %}
-            <a href="{% url 'recipes:recipe' recipe.pk %}">
-                <img src="{{ recipe.cover.url }}" alt="thumbnail">
-            </a>
-        {% else %}
+        {% if recipe.cover %}
             <img src="{{ recipe.cover.url }}" alt="thumbnail">
+        {% else %}
+            <img src="{% static 'images/recipe/no-image.jpeg' %}" alt="no-image">
         {% endif %}
-        
     </div>
 
     <div class="recipe-title-container">
@@ -17,14 +16,19 @@
     <div class="recipe-author">
         <span class="recipe-author-item">
             <i class="fas fa-user"></i>
-            {{ recipe.author.first_name }} {{ recipe.author.last_name }}
+            {% if recipe.author.first_name %}
+                {{ recipe.author.first_name }} {{ recipe.author.last_name }}
+            {% else %}
+                {{ recipe.author.username }}
+            {% endif %}
+            
         </span>
         <span class="recipe-author-item">
             <i class="fas fa-calendar-alt"></i>
             {{ recipe.created_at }}
         </span>
         <span class="recipe-author-item">
-            <a href="#">
+            <a href="{% url 'category' recipe.category.id %}">
                 <i class="fas fa-layer-group"></i>
                 <span>{{ recipe.category.name }}</span>
             </a>

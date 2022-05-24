@@ -29,7 +29,10 @@ class Recipe(Base):
     preparation_steps = models.TextField()
     preparation_steps_is_html = models.BooleanField(default=False)
     published = models.BooleanField(default=False)
-    cover = models.ImageField(upload_to='recipes/cover/%Y/%m/%d/')
+    cover = models.ImageField(
+        upload_to='recipes/cover/%Y/%m/%d/',
+        blank=True,
+        default="")
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     

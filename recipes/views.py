@@ -1,19 +1,33 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
 from .utils.recipes.factory import make_recipe
+
+from .models import Recipe
 
 # Create your views here.
 def home(request):
+    recipes = Recipe.objects.all().order_by('-id')
+    
     context = {
-        'recipes': [make_recipe() for _ in range(10)]
+        # [make_recipe() for _ in range(10)]
+        'recipes': recipes
+    }
+    
+    return render(request, 'recipes/home.html', context)
+
+def category(request, cat_pk):
+    recipes = Recipe.objects.filter(id=cat_pk).order_by('-id')
+    
+    context = {
+        'recipes': recipes
     }
     
     return render(request, 'recipes/home.html', context)
 
 def recipe(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+    
     context = {
-        'recipe': make_recipe(),
+        'recipe': recipe,
         'is_detail_page': True,
     }
     
