@@ -15,7 +15,7 @@ def home(request):
     return render(request, 'recipes/home.html', context)
 
 def category(request, cat_pk):
-    recipes = Recipe.objects.filter(id=cat_pk).order_by('-id')
+    recipes = Recipe.objects.filter(category__id=cat_pk)
     
     context = {
         'recipes': recipes
