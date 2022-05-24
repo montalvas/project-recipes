@@ -8,6 +8,9 @@ class Base(models.Model):
     
     class Meta:
         abstract = True
+        
+def get_default_category():
+    return Category.objects.get_or_create(name="Geral")[0]
 
 class Category(Base):
     name = models.CharField(max_length=100)
@@ -33,7 +36,7 @@ class Recipe(Base):
         upload_to='recipes/cover/%Y/%m/%d/',
         blank=True,
         default="")
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, default=get_default_category)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
