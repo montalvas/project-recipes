@@ -17,20 +17,21 @@ def home(request):
 
 def category(request, cat_pk):
     category = get_object_or_404(Category, pk=cat_pk)
-    recipes = category.recipe_set.all()
+    recipes = category.recipe_set.filter(published=True)
     
     context = {
         'recipes': recipes,
-        'title': f'{category} | Category',
+        'title': f'{category}',
     }
     
     return render(request, 'recipes/home.html', context)
 
 def recipe(request, pk):
-    recipe = Recipe.objects.get(pk=pk)
+    recipe = get_object_or_404(Recipe, pk=pk, published=True)
     
     context = {
         'recipe': recipe,
+        'title': recipe.title,
         'is_detail_page': True,
     }
     
