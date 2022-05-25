@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .utils.recipes.factory import make_recipe
 
-from .models import Recipe
+from .models import Recipe, Category
 
 # Create your views here.
 def home(request):
@@ -16,11 +16,12 @@ def home(request):
     return render(request, 'recipes/home.html', context)
 
 def category(request, cat_pk):
-    recipes = Recipe.objects.filter(category__id=cat_pk, published=True).order_by('-id')
+    category = get_object_or_404(Category, pk=cat_pk)
+    recipes = category.recipe_set.all()
     
     context = {
         'recipes': recipes,
-        'title': recipes[0].category.name,
+        'title': f'{category} | Category',
     }
     
     return render(request, 'recipes/home.html', context)
