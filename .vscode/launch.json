@@ -18,6 +18,6 @@
     ],
     "settings": {
         "python.terminal.activateEnvInCurrentTerminal": true,
-        "python.defaultInterpreterPath": "~/venv/Scripts/python"
+        "python.defaultInterpreterPath": "/venv/Scripts/python"
     }
 }

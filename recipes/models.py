@@ -30,7 +30,6 @@ class Recipe(Base):
     servings = models.PositiveIntegerField()
     servings_unit = models.CharField(max_length=10)
     preparation_steps = models.TextField()
-    preparation_steps_is_html = models.BooleanField(default=False)
     published = models.BooleanField(default=False)
     cover = models.ImageField(
         upload_to='recipes/cover/%Y/%m/%d/',

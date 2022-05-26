@@ -5,7 +5,7 @@ from .models import Recipe, Category
 
 # Create your views here.
 def home(request):
-    recipes = Recipe.objects.all().filter(published=True).order_by('-id')
+    recipes = Recipe.objects.filter(published=True).order_by('-id')
     
     context = {
         # [make_recipe() for _ in range(10)]
