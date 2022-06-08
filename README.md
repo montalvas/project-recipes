@@ -1,2 +1,6 @@
-# django-season1
-Session 1 of django studies
+# Project Recipes
+
+## A complete django project covering the following topics:
+* Function views
+* Inherited template
+* Tests
